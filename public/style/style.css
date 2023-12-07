@@ -221,3 +221,25 @@ main > * {
 #container li:hover {
   background-color: #9199a7;
 }
+
+#navio-options {
+  display: flex;
+  flex-direction: column;
+}
+
+#navio-options a{
+  color: rgb(0, 3, 5);
+  background-color: #ccc;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+#navio-options a:hover{
+  background-color: #948383;
+}
+
+#navio-container{
+  display: flex;
+  flex-direction: row;
+}
