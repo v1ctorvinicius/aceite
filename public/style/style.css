@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #4f5f70;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #336497;
+  color: white;
+  min-height: 20vh;
+  width: 100%;
+  flex-grow: 1;
+}
+
+#auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2vh;
+  background-color: #294059;
+  width: 40vw;
+  border-radius: 10px;
+  color: aliceblue;
+  flex-grow: 2;
+}
+
+#auth-container > * {
+  margin: 2vh;
+}
+
+#auth-container > input {
+  padding: 1vh;
+  width: 80%;
+  font-size: large;
+}
+
+#auth-container > label {
+  font-weight: bold;
+  font-size: large;
+}
+
+#auth-container > button {
+  padding: 1vh;
+  width: 20vw;
+  background-color: seagreen;
+  font-size: medium;
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #16182b;
+  width: 100%;
+  color: aliceblue;
+  min-height: 10vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #294059;
+  margin-top: 2vh;
+  width: 100%;
+  color: aliceblue;
+  min-height: 80vh;
+  height: 80%;
+}
+
+main > * {
+  padding: 2%;
+  margin-bottom: 2%;
+  background-color: #16182b;
+  border-radius: 10px;
+}
+
+#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  font-size: larger;
+  color: aliceblue;
+}
+#nav a {
+  color: aliceblue;
+  text-decoration: none;
+  background-color: aliceblue;
+  color: black;
+  padding: 1% 4%;
+}
+
+#nav a:hover {
+  background-color: rgb(144, 174, 200);
+  color: black;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 30vh;
+}
