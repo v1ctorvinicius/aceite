@@ -29,6 +29,7 @@ header {
   align-items: center;
   flex-direction: column;
   margin-top: 2vh;
+  margin-bottom: 2vh;
   background-color: #294059;
   width: 40vw;
   border-radius: 10px;
@@ -51,7 +52,7 @@ header {
   font-size: large;
 }
 
-#auth-container > button {
+#auth-container  button {
   padding: 1vh;
   width: 20vw;
   background-color: seagreen;
@@ -68,6 +69,7 @@ footer {
   width: 100%;
   color: aliceblue;
   min-height: 10vh;
+  
 }
 
 main {
@@ -93,28 +95,129 @@ main > * {
 
 #nav {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
+  background-color: #16182b;
+  color: aliceblue;
+  padding: 10px;
   width: 100%;
-  font-size: larger;
-  color: aliceblue;
 }
+
 #nav a {
-  color: aliceblue;
   text-decoration: none;
-  background-color: aliceblue;
-  color: black;
-  padding: 1% 4%;
+  color: aliceblue;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 #nav a:hover {
-  background-color: rgb(144, 174, 200);
-  color: black;
+  background-color: #336497;
 }
 
 #container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  /* width: 50%; */
   min-height: 30vh;
+}
+
+#container a {
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+#container li {
+  background-color: #414dbd;
+  margin-top: 2vh;
+  padding: 1%;
+  list-style: none;
+}
+
+#container li:hover {
+  background-color: rgb(144, 174, 200);
+}
+
+#home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+
+.main-container > * {
+  background-color: black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 30px;
+  width: 45%;
+  
+}
+
+#buscar {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#buscar h2 {
+  color: #336497;
+}
+
+#searchForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#searchForm label {
+  margin-bottom: 8px;
+}
+
+#searchForm input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#searchForm button {
+  background-color: #336497;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#searchForm button:hover {
+  background-color: #1c3557;
+}
+
+#container {
+  list-style: none;
+  padding: 0;
+}
+
+#container li {
+  background-color: aliceblue;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  color: #000000;
+}
+
+#container li a {
+  color: #336497;
+  font-weight: bold;
+}
+
+#container li:hover {
+  background-color: #9199a7;
 }

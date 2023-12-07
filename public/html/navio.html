@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navio</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Aceite Técnico</h1>
+    </header>
+
+    <main>
+      <nav id="nav">
+        <a href="home.html" target="_blank">Home</a>
+        <a href="navios.html" target="">Navios</a>
+        <a href="#" target="_blank">Pedidos</a>
+      </nav>
+
+      <div id="main-container"></div>
+    </main>
+
+    <footer>
+      <p>&copy; IFMA 2023</p>
+    </footer>
+
+    <script type="module">
+      import { getNavio } from "../../js/controller/navioController.js";
+      let navioId = window.location.href.split("=")[1];
+      let navio = await getNavio(navioId);
+      let html = "";
+
+      for (const key in navio) {
+        if (Object.hasOwnProperty.call(navio, key)) {
+          const element = navio[key];
+          html += "<p>" + key + ": " + element + "<p><br>";
+        }
+      }
+      console.log(html);
+
+      // navios.forEach((element) => {
+      //   link =
+      //     "http://localhost:5500/public/html/navio.html?navio=" + element.id;
+      //   html += `<li id="${element.id}"> ( ${element.bandeira} )  <a href="${link}">${element.nome}</a> - Cod.: ${element.codNavio}</li>`;
+      // });
+
+      document.getElementById("main-container").innerHTML = html;
+    </script>
+  </body>
+</html>

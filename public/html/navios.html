@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navios</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Aceite Técnico</h1>
+      </div>
+    </header>
+
+    <main>
+      <nav id="nav">
+        <a href="home.html">Home</a>
+        <a href="" class="active">Navios</a>
+        <a href="#">Pedidos</a>
+      </nav>
+
+      <div class="main-container">
+        <div id="buscar">
+          <h2>Buscar</h2>
+          <form id="searchForm">
+            <label for="nome">Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Digite o nome"
+            />
+
+            <label for="bandeira">Bandeira:</label>
+            <input
+              type="text"
+              id="bandeira"
+              name="bandeira"
+              placeholder="Digite a bandeira"
+            />
+
+            <label for="cod">Código:</label>
+            <input
+              type="text"
+              id="cod"
+              name="cod"
+              placeholder="Digite o código"
+            />
+
+            <button type="button" onclick="searchNavios()">Buscar</button>
+          </form>
+        </div>
+        <ul id="container"></ul>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; IFMA 2023</p>
+    </footer>
+
+    <script type="module">
+      import { getNavios } from "../../js/controller/navioController.js";
+      let navios = await getNavios();
+      let html = "";
+
+      let link;
+
+      navios.forEach((element) => {
+        link =
+          "http://localhost:5500/public/html/navio.html?navio=" + element.id;
+        html += `<li id="${element.id}"> ( ${element.bandeira} )  <a target="_blank" href="${link}">${element.nome}</a> - Cod.: ${element.codNavio}</li>`;
+      });
+
+      document.getElementById("container").innerHTML = html;
+    </script>
+  </body>
+</html>
