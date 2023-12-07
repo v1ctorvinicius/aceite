@@ -22,7 +22,11 @@
       <div id="navio-container">
         <div id="navio"></div>
         <div id="navio-options">
-          <div id="template-status">template valido/invalido</div>
+          <h3>Templates do navio:</h3>
+          <div id="templates">
+            <div id="template-status">template valido/invalido</div>
+
+          </div>
           <a href="navios.html" target="">Voltar</a>
           <a href="#" id="btncadastrar">Cadastrar Pedido</a>
         </div>
@@ -36,10 +40,18 @@
     <script type="module">
       import { getNavio } from "../../js/controller/navioController.js";
       import { cadastrarPedido } from "../../js/service/navioService.js";
+      import { getTemplates } from "../../js/controller/templateController.js";
 
       let navioId = window.location.href.split("=")[1];
       let navio = await getNavio(navioId);
-      let html = "";
+      let naviosHtml = "";
+
+      let templates = await getTemplates();
+      let templatesHtml = "";
+
+      templates.forEach((element) => {
+        templatesHtml += `<li id="${element.id}">id: ${element.id}, pedidoId: ${element.pedidoId}, planoDeCarga: ${element.planoDeCargaId}</li>`;
+      });
 
       document
         .getElementById("btncadastrar")
@@ -51,7 +63,7 @@
       for (const key in navio) {
         if (Object.hasOwnProperty.call(navio, key)) {
           const element = navio[key];
-          html +=
+          naviosHtml +=
             "<p>" +
             key.charAt(0).toUpperCase() +
             key.slice(1) +
@@ -61,7 +73,8 @@
         }
       }
 
-      document.getElementById("navio").innerHTML = html;
+      document.getElementById("navio").innerHTML = naviosHtml;
+      document.getElementById("templates").innerHTML = templatesHtml;
     </script>
   </body>
 </html>

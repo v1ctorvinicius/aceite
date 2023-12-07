@@ -243,3 +243,12 @@ main > * {
   display: flex;
   flex-direction: row;
 }
+
+
+
+#templates > * {
+  margin: 20px;
+  background-color: #1c3557;
+  padding: 10px;
+  list-style: none;
+}
