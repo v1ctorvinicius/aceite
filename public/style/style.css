@@ -5,11 +5,12 @@
 }
 
 body {
-  background-color: #4f5f70;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #171717;
 }
 
 header {
@@ -30,7 +31,7 @@ header {
   flex-direction: column;
   margin-top: 2vh;
   margin-bottom: 2vh;
-  background-color: #294059;
+  background-color: #252525;
   width: 40vw;
   border-radius: 10px;
   color: aliceblue;
@@ -45,6 +46,8 @@ header {
   padding: 1vh;
   width: 80%;
   font-size: large;
+  background-color: #4D4D4D;
+  border: 0;
 }
 
 #auth-container > label {
@@ -52,12 +55,17 @@ header {
   font-size: large;
 }
 
-#auth-container  button {
+#auth-container button {
   padding: 1vh;
   width: 20vw;
-  background-color: seagreen;
+  background-color: #31aef3;
   font-size: medium;
   font-weight: bold;
+  border: 0;
+}
+
+#auth-container button:hover{
+  background-color: #31ccf3;
 }
 
 footer {
@@ -68,8 +76,7 @@ footer {
   background-color: #16182b;
   width: 100%;
   color: aliceblue;
-  min-height: 10vh;
-  
+  min-height: 20vh;
 }
 
 main {
@@ -78,8 +85,7 @@ main {
   justify-content: start;
   align-items: center;
   flex-grow: 1;
-  background-color: #294059;
-  margin-top: 2vh;
+  background-color: #171717;
   width: 100%;
   color: aliceblue;
   min-height: 80vh;
@@ -89,14 +95,14 @@ main {
 main > * {
   padding: 2%;
   margin-bottom: 2%;
-  background-color: #16182b;
+  background-color: #171717;
   border-radius: 10px;
 }
 
 #nav {
   display: flex;
   justify-content: space-around;
-  background-color: #16182b;
+  background-color: #171717;
   color: aliceblue;
   padding: 10px;
   width: 100%;
@@ -110,7 +116,7 @@ main > * {
 }
 
 #nav a:hover {
-  background-color: #336497;
+  background-color: #2e2e2e;
 }
 
 #container {
@@ -118,22 +124,29 @@ main > * {
   flex-direction: column;
   /* width: 50%; */
   min-height: 30vh;
+  padding: 0;
+  padding-bottom: 20px;
+  background-color: #252525;
+  border-radius: 10px;
 }
 
 #container a {
-  color: aliceblue;
   text-decoration: underline;
+  color: #336497;
+  font-weight: bold;
 }
 
 #container li {
-  background-color: #414dbd;
-  margin-top: 2vh;
-  padding: 1%;
   list-style: none;
+  color: white;
+  background-color: #4d4d4d;
+  border-radius: 5px;
+  margin: 20px 20px 0 20px;
+  padding: 10px;
 }
 
 #container li:hover {
-  background-color: rgb(144, 174, 200);
+  background-color: #616161;
 }
 
 #home-container {
@@ -144,35 +157,32 @@ main > * {
 
 .main-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  width: 100%;
+  align-items: center;
+  width: 50vw;
   height: 100%;
 }
 
 .main-container > * {
-  background-color: black;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 30px;
-  width: 45%;
-  
+  width: 100%;
 }
 
 #buscar {
-  background-color: #000000;
-  padding: 20px;
+  background-color: #252525;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
 #buscar h2 {
-  color: #336497;
+  color: #31aef3;
+  margin: 20px;
 }
 
 #searchForm {
   display: flex;
   flex-direction: column;
+  padding: 0 20px 20px 20px;
 }
 
 #searchForm label {
@@ -187,39 +197,17 @@ main > * {
 }
 
 #searchForm button {
-  background-color: #336497;
+  background-color: #31aef3;
   color: #fff;
   padding: 10px;
+  margin-top: 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 #searchForm button:hover {
-  background-color: #1c3557;
-}
-
-#container {
-  list-style: none;
-  padding: 0;
-}
-
-#container li {
-  background-color: aliceblue;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  color: #000000;
-}
-
-#container li a {
-  color: #336497;
-  font-weight: bold;
-}
-
-#container li:hover {
-  background-color: #9199a7;
+  background-color: #31ccf3;
 }
 
 #navio-options {
@@ -227,7 +215,7 @@ main > * {
   flex-direction: column;
 }
 
-#navio-options a{
+#navio-options a {
   color: rgb(0, 3, 5);
   background-color: #ccc;
   text-decoration: none;
@@ -235,16 +223,14 @@ main > * {
   margin: 10px;
   text-align: center;
 }
-#navio-options a:hover{
+#navio-options a:hover {
   background-color: #948383;
 }
 
-#navio-container{
+#navio-container {
   display: flex;
   flex-direction: row;
 }
-
-
 
 #templates > * {
   margin: 20px;
