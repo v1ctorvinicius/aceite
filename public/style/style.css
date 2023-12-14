@@ -46,7 +46,7 @@ header {
   padding: 1vh;
   width: 80%;
   font-size: large;
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
   border: 0;
 }
 
@@ -64,7 +64,7 @@ header {
   border: 0;
 }
 
-#auth-container button:hover{
+#auth-container button:hover {
   background-color: #31ccf3;
 }
 
@@ -210,26 +210,41 @@ main > * {
   background-color: #31ccf3;
 }
 
+#navio-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #252525;
+}
+
+#navio-container > * {
+  padding: 20px;
+  margin: 20px;
+}
+
+#navio {
+  display: flex;
+  flex-direction: column;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+}
+
 #navio-options {
   display: flex;
   flex-direction: column;
+  background-color: #4d4d4d;
+  border-radius: 10px;
 }
 
 #navio-options a {
   color: rgb(0, 3, 5);
-  background-color: #ccc;
+  background-color: #31aef3;
   text-decoration: none;
   padding: 10px;
   margin: 10px;
   text-align: center;
 }
 #navio-options a:hover {
-  background-color: #948383;
-}
-
-#navio-container {
-  display: flex;
-  flex-direction: row;
+  background-color: #31ccf3;
 }
 
 #templates > * {

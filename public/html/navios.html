@@ -27,7 +27,7 @@
             <label for="nome">Nome:</label>
             <input
               type="text"
-              id="nome"
+              id="inome"
               name="nome"
               placeholder="Digite o nome"
             />
@@ -48,7 +48,7 @@
               placeholder="Digite o código"
             />
 
-            <button type="button" onclick="searchNavios()">Buscar</button>
+            <button id="btnsearch" type="button">Buscar</button>
           </form>
         </div>
         <ul id="container"></ul>
@@ -61,6 +61,8 @@
 
     <script type="module">
       import { getNavios } from "../../js/controller/navioController.js";
+      import { searchNavios } from "../../js/service/navioService.js";
+
       let navios = await getNavios();
       let html = "";
 
@@ -72,7 +74,33 @@
         html += `<li id="${element.id}"> ( ${element.bandeira} )  <a target="_blank" href="${link}">${element.nome}</a> - Cod.: ${element.codNavio}</li>`;
       });
 
-      document.getElementById("container").innerHTML = html;
+      let container = document.getElementById("container");
+      container.innerHTML = html;
+
+      let naviosSearchResult;
+      document
+        .getElementById("btnsearch")
+        .addEventListener("click", (event) => {
+          let navioNome = document.getElementById("inome").value;
+          let navioBandeira = document.getElementById("bandeira").textContent;
+          let navioCod = document.getElementById("cod").textContent;
+          naviosSearchResult = searchNavios(
+            navioNome,
+            undefined,
+            undefined,
+            container
+          );
+          naviosSearchResult.then((result) => {
+            html = "";
+            result.forEach((element) => {
+              link =
+                "http://localhost:5500/public/html/navio.html?navio=" +
+                element.id;
+              html += `<li id="${element.id}"> ( ${element.bandeira} )  <a target="_blank" href="${link}">${element.nome}</a> - Cod.: ${element.codNavio}</li>`;
+            });
+          });
+          container.innerHTML = html;
+        });
     </script>
   </body>
 </html>
