@@ -221,6 +221,8 @@ main > * {
   margin: 20px;
 }
 
+
+
 #navio {
   display: flex;
   flex-direction: column;
@@ -235,15 +237,15 @@ main > * {
   border-radius: 10px;
 }
 
-#navio-options a {
+#navio-options button {
   color: rgb(0, 3, 5);
   background-color: #31aef3;
-  text-decoration: none;
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border: none;
 }
-#navio-options a:hover {
+#navio-options button:hover {
   background-color: #31ccf3;
 }
 

@@ -19,16 +19,15 @@
         <a href="#" target="_blank">Pedidos</a>
       </nav>
 
-      <div id="navio-container">
+      <div id="navio-container" style="flex-wrap: wrap">
         <div id="navio"></div>
         <div id="navio-options">
           <h3>Templates do navio:</h3>
           <div id="templates">
             <div id="template-status">template valido/invalido</div>
-
           </div>
-          <a href="navios.html" target="">Voltar</a>
-          <a href="#" id="btncadastrar">Cadastrar Pedido</a>
+          <button href="navios.html" target="">Voltar</button>
+          <button href="#" id="btncadastrar">Cadastrar Pedido</button>
         </div>
       </div>
     </main>
@@ -40,30 +39,39 @@
     <script type="module">
       import { getNavio } from "../../js/controller/navioController.js";
       import { cadastrarPedido } from "../../js/service/navioService.js";
-      import { getTemplates } from "../../js/controller/templateController.js";
+      import { getTemplatesByNavio } from "../../js/controller/templateController.js";
 
       let navioId = window.location.href.split("=")[1];
       let navio = await getNavio(navioId);
-      let naviosHtml = "";
+      let navioHtml = "";
 
-      let templates = await getTemplates();
+      let templates = await getTemplatesByNavio(navioId);
       let templatesHtml = "";
 
       templates.forEach((element) => {
-        templatesHtml += `<li id="${element.id}">id: ${element.id}, pedidoId: ${element.pedidoId}, planoDeCarga: ${element.planoDeCargaId}</li>`;
+        templatesHtml += `<li style="display: flex; justify-content: space-between;background-color: ${
+          element.status == "valido" ? "green" : "red"
+        }" id="${element.id}">id: ${element.id}, pedidoId: ${
+          element.pedidoId
+        }, navioId: ${element.navioId}, planoDeCarga: ${
+          element.planoDeCargaId
+        }, status: ${element.status}. <button class="btntemplate" id="btn${
+          element.id
+        }">Selecionar</button></li>`;
       });
 
-      document
-        .getElementById("btncadastrar")
-        .addEventListener("click", (event) => {
-          event.preventDefault();
-          cadastrarPedido();
-        });
+      let btncadastrar = document.getElementById("btncadastrar");
+      btncadastrar.disabled = true;
+
+      btncadastrar.addEventListener("click", (event) => {
+        event.preventDefault();
+        cadastrarPedido();
+      });
 
       for (const key in navio) {
         if (Object.hasOwnProperty.call(navio, key)) {
           const element = navio[key];
-          naviosHtml +=
+          navioHtml +=
             "<p>" +
             key.charAt(0).toUpperCase() +
             key.slice(1) +
@@ -73,8 +81,17 @@
         }
       }
 
-      document.getElementById("navio").innerHTML = naviosHtml;
+      document.getElementById("navio").innerHTML = navioHtml;
       document.getElementById("templates").innerHTML = templatesHtml;
+
+      let selectedTemplate;
+      let btns = document.getElementsByClassName("btntemplate");
+      for (let i = 0; i < btns.length; i++) {
+        btns.item(i).addEventListener("click", (event) => {
+          selectedTemplate = event.target.id.split("btn")[1];
+          console.log(selectedTemplate);
+        });
+      }
     </script>
   </body>
 </html>
